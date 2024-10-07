@@ -14,7 +14,11 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.irongade.ajoinpoc"
+      "bundleIdentifier": "com.irongade.ajoinpoc-cosist",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "App requires location access for Bluetooth communication.",
+        "NSBluetoothAlwaysUsageDescription": "App requires Bluetooth to communicate with devices."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -35,11 +39,15 @@
     },
     "plugins": [
       "expo-router",
-      ["react-native-ble-plx", {
-        "isBackgroundEnabled": true,
-        "modes": ["peripheral", "central"],
-        "bluetoothAlwaysPermission": "Allow $(PRODUCT_NAME) to connect to bluetooth devices"
-      }]
+      [
+        "react-native-ble-plx",
+        {
+          "isBackgroundEnabled": true,
+          "modes": ["peripheral", "central"],
+          "bluetoothAlwaysPermission": "Allow $(PRODUCT_NAME) to connect to bluetooth devices",
+          "bluetoothPeripheralPermission": "Allow $(PRODUCT_NAME) to connect to bluetooth devices"
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true
